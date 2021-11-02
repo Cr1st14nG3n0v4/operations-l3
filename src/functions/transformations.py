@@ -292,15 +292,15 @@ class SlotTime(object):
 
         for index, row in df.iterrows():
             if row[dt_col_name] < self.early:
-                df.at[index, 'slot_time'] = 'Early'
+                df.at[index, 'slot_time'] = '01 - Early'
             if self.early <= row[dt_col_name] < self.breakfast:
-                df.at[index, 'slot_time'] = 'Breakfast'
+                df.at[index, 'slot_time'] = '02 - Breakfast'
             if self.breakfast <= row[dt_col_name] < self.lunch:
-                df.at[index, 'slot_time'] = 'Lunch'
+                df.at[index, 'slot_time'] = '03 - Lunch'
             if self.lunch <= row[dt_col_name] < self.afternoon:
-                df.at[index, 'slot_time'] = 'Afternoon'
+                df.at[index, 'slot_time'] = '04 - Afternoon'
             if row[dt_col_name] >= self.afternoon:
-                df.at[index, 'slot_time'] = 'Dinner'
+                df.at[index, 'slot_time'] = '05 - Dinner'
 
         return df
     
