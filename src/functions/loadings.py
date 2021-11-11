@@ -86,8 +86,6 @@ def get_order_product_detail(country="AR", app="RP", fg_history=0):
         # Subset orders with "product" type
         df_orders_products = df_orders[df_orders['type'] == 'product']
         
-        df_orders_products['order_id'] = df_orders_products['order_id'].astype(int)
-        
         # Subset of interested Columns
         ldrop = ['topping_id', 'topping_name', 'topping_units', 'topping_price']
         df_orders_products.drop(ldrop, axis=1, inplace=True)
